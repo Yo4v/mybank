@@ -1,0 +1,10 @@
+<div *ngIf="getShow()">
+  <a class="bye" (click)="logout()">התנתק</a>
+  <a routerLink="/ChangePassword">שינוי פרטי כניסה</a>
+  <a routerLink="/ChangeOwnerDetail">שינוי פרטי בעל חשבון</a>
+  <a routerLink="/ChangeBankDetail">שינוי סניף</a>
+  <a routerLink="/transactionTable">ליווח התנועות</a>
+  <a routerLink="/BankAccount">הזנת תנועות</a>
+  <p class="hi">שלום, {{ owner_srv.theAccountOwner.name }}!</p>
+  <p class="now">יתרתך הרגעית: {{ menu_srv.getBalance() | currency: "ILS" }}</p>
+</div>

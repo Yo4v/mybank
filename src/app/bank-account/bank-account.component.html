@@ -1,0 +1,30 @@
+<h2>{{ title }}</h2>
+<div dir="ltr" class="main">
+  <label for=amount>:סכום</label>
+  <input dir="rtl" required type=number id=amount min=0 [(ngModel)]="currentAmount" />
+  <label for=asmachta>:אסמכתא</label>
+  <textarea id=asmachta [(ngModel)]="currentTransactionAsmachta"></textarea>
+  <label for=comnt>:הערה</label>
+  <textarea id=comnt [(ngModel)]="comment"></textarea>
+  <label for=taarich>:תאריך</label>
+  <input required type=date id=taarich [(ngModel)]="currentTransactionDate" />
+  <label for=sugpeula>:סוג פעולה</label>
+  <select dir="rtl" *ngIf="transactionsList.length<1" id=sugpeula [(ngModel)]="currentTransactionType">
+    <option *ngFor="let typname of transactionTypeNames; let i=index" value={{i}}>{{typname}}</option>
+  </select>
+  <select *ngIf="transactionsList.length>=1" id=sugpeula [(ngModel)]="currentTransactionType">
+    <option required *ngFor="let typname of newTtransactionTypeNames; let i=index" value={{i+1}}>{{typname}}</option>
+  </select>
+  <div>
+    <button type="button" (click)='doTransaction();'>בצע פעולה </button>
+  </div>
+</div>
+<p *ngIf="!lastActionFail">
+  {{transaction}}
+</p>
+<p *ngIf="!lastActionFail" [class.minus]='currentBalance<0'>
+  יתרתך הנוכחית הינה: {{this.trans_srv.getCurrentBalance()|currency:'ILS'}}.
+</p>
+<p *ngIf="lastActionFail" dir="rtl" class="minus">
+  פעולת נדחתה עקב חריגה צפויה מתקרת אשראי של <bdo dir="ltr">{{limit|currency:'ILS'}}</bdo>
+</p>

@@ -1,0 +1,17 @@
+table,
+caption,
+th,
+td {
+  margin: 0 auto;
+  border: 3px groove burlywood;
+  padding: 5px;
+  text-align: center;
+}
+caption {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: goldenrod;
+}
+th {
+  background-color: cadetblue;
+}

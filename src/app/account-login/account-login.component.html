@@ -1,0 +1,9 @@
+<div>
+  <div class="form">
+    <label for="uid">דוא"ל:</label>
+    <input type="email" id="uid" placeholder="כתובת המייל שלך" required [(ngModel)]="doel" />
+    <label for="pwd">סיסמא:</label>
+    <input type="password" id="pwd" placeholder="הסיסמא שלך" required [(ngModel)]="sisma" />
+  </div>
+  <button (click)="logIn()">כנס</button>
+</div>

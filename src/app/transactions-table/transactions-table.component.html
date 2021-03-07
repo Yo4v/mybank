@@ -1,0 +1,23 @@
+<div>
+  <table>
+    <caption>
+      פעולות בחשבון
+    </caption>
+    <tr>
+      <th>מס' שורה</th>
+      <th>תאריך פעולה</th>
+      <th>סוג פעולה</th>
+      <th>סכום</th>
+      <th>יתרה בחשבון לאחר פעולה</th>
+    </tr>
+    <tr *ngFor="let action of transactionsList">
+      <td>
+        <a routerLink="{{ '/transactionInfo/' + action.index }}">{{ action.index }}</a>
+      </td>
+      <td>{{ action.trnDate | date: "dd/MM/yyyy" }}</td>
+      <td>{{ transactionTypeNames[action.trnTyp] }}</td>
+      <td>{{ action.amount | currency: "ILS" }}</td>
+      <td>{{ action.currentBalance | currency: "ILS" }}</td>
+    </tr>
+  </table>
+</div>

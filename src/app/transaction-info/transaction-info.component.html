@@ -1,0 +1,21 @@
+<div id="transaction">
+  <h2>נתוני הפעולה</h2>
+  <dl>
+    <dt>מספר הפעולה:</dt>
+    <dd>{{ transaction.index }}</dd>
+    <dt>תאריך הפעולה:</dt>
+    <dd>{{ transaction.trnDate | date: "dd/MM/yyyy" }}</dd>
+    <dt>סוג הפעולה:</dt>
+    <dd>{{ names[transaction.trnTyp] }}</dd>
+    <dt>כמות בפעולה:</dt>
+    <dd>{{ transaction.amount | currency: "ILS" }}</dd>
+    <dt>אסמכתא:</dt>
+    <dd>{{ transaction.asmachta }}</dd>
+    <dt>הערה:</dt>
+    <dd>{{ transaction.comnt }}</dd>
+    <dt>היתרה הנוכחית:</dt>
+    <dd>{{ transaction.currentBalance | currency: "ILS" }}</dd>
+  </dl>
+  <button id="deleted" (click)="deleteTransaction()">מחק פעולה</button>
+  <button id="back" (click)="returnToBnkTrns()">חזור לרשימת הפעולות</button>
+</div>

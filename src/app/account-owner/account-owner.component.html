@@ -1,0 +1,20 @@
+<div dir="ltr" id="owner">
+    <h2>:בעל החשבון</h2>
+    <h3>{{currentOwner.name}}</h3>
+    <img height=150px [src]="'/assets/images/'+((currentOwner.hasPicture)?currentOwner.tz:'nopic')+'.jpg'" />
+    <div id="changeDetails">
+        <label for=name>:שם לקוח</label>
+        <input required type=text id=name [(ngModel)]="currentOwner.name" />
+        <label for=address>:כתובת</label>
+        <input required type=text id=address [(ngModel)]="currentOwner.address" />
+        <label for=hasPicture>:יש תמונה</label>
+        <input type=checkbox id=hasPicture [(ngModel)]="currentOwner.hasPicture" />
+        <label for=tz>:.ת.ז</label>
+        <input type=text id=tz disabled [value]="currentOwner.tz" />
+    </div>
+    <button *ngIf="!editCurrentOwner" (click)="updateOwner();editCurrentOwner=true">ערוך פרטי משתמש</button>
+    <div *ngIf="editCurrentOwner">
+        <p>פרטי המשתמש עודכנו</p>
+        <button routerLink='/BankAccount'>חזור לדף הפעולות</button>
+    </div>
+</div>

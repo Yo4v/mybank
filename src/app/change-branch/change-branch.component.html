@@ -1,0 +1,26 @@
+<div id="branch">
+    <h2>עריכת פרטי סניף</h2>
+    <div id="changeDetails" *ngIf="!onModifyBankDetails">
+       <dl>
+            <dt>שם הבנק:</dt>
+            <dd>{{account.bankName}}</dd>
+            <dt>שם הסניף:</dt>
+            <dd>{{account.branchName}}</dd>
+            <dt>מספר הסניף:</dt>
+            <dd>{{account.branchNumber}}</dd>
+            <dt>מספר החשבון:</dt>
+            <dd>{{account.accountNumber}}</dd>
+        </dl>
+        <button (click)="startModifyDescription()">ערוך פרטי סניף</button>
+    </div>
+    <div dir="ltr" id="changeDetails" *ngIf="onModifyBankDetails">
+        <label for=branchName>:שם הסניף</label>
+        <input required type=text id=name [(ngModel)]="currentModifiableBankDetails" />
+        <label for=branchNum>:מספר הסניף</label>
+        <input dir="rtl" required type=number id=name min=0 [(ngModel)]="account.branchNumber" />
+        <label for=accoutNum>:מספר החשבון</label>
+        <input dir="rtl" required type=number id=name min=0 [(ngModel)]="account.accountNumber" />
+        <button (click)="endModifyDescription()">ערוך פרטי סניף</button>
+        <button (click)="cancelModifyDescription()">בטל</button>
+    </div>
+</div>
